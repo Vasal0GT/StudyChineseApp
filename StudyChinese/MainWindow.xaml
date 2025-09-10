@@ -10,15 +10,15 @@
     
     <ScrollViewer VerticalScrollBarVisibility="Auto"
                   HorizontalScrollBarVisibility="Disabled">
-        
-        
-        <Grid Name="mainGrid" Background="#FEF2F2">
+
+
+        <Grid Name="mainGrid" Background="#FEF2F2" Height="{Binding ViewportHeight, ElementName=scroller}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1.5*"/>
                 <RowDefinition Height="3.5*"/>
                 <RowDefinition Height="1.5*"/>
                 <RowDefinition Height="1.5*"/>
-                <RowDefinition Height="8*"/>
+                <RowDefinition Height="700" MaxHeight="700"/>
                 <RowDefinition Height="2.5*"/>
                 <RowDefinition Height="1.5*"/>
             </Grid.RowDefinitions>
@@ -40,7 +40,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <Border Grid.Row="0" Grid.Column="0" Background="White" BorderBrush="LightGray" BorderThickness="1" CornerRadius="8" Padding="10" Margin="5">
+                <Border Grid.Row="0" Grid.Column="0" Background="White" BorderBrush="LightGray" BorderThickness="1" CornerRadius="28" Padding="20" Margin="30 30 30 30">
                     <Border.Style>
                         <Style TargetType="Border">
                             <Setter Property="RenderTransform">
@@ -103,7 +103,7 @@
                     </StackPanel>
                 </Border>
 
-                <Border Grid.Row="0" Grid.Column="1" Background="White" BorderBrush="LightGray" BorderThickness="1" CornerRadius="8" Padding="10" Margin="5">
+                <Border Grid.Row="0" Grid.Column="1" Background="White" BorderBrush="LightGray" BorderThickness="1" CornerRadius="28" Padding="10" Margin="30 30 30 30">
                     <Border.Style>
                         <Style TargetType="Border">
                             <Setter Property="RenderTransform">
@@ -166,7 +166,7 @@
                     </StackPanel>
                 </Border>
 
-                <Border Grid.Row="0" Grid.Column="2" Background="White" BorderBrush="LightGray" BorderThickness="1" CornerRadius="8" Padding="10" Margin="5">
+                <Border Grid.Row="0" Grid.Column="2" Background="White" BorderBrush="LightGray" BorderThickness="1" CornerRadius="28" Padding="10" Margin="30 30 30 30">
                     <Border.Style>
                         <Style TargetType="Border">
                             <Setter Property="RenderTransform">
@@ -229,7 +229,7 @@
                     </StackPanel>
                 </Border>
 
-                <Border Grid.Row="1" Grid.Column="0" Background="White" BorderBrush="LightGray" BorderThickness="1" CornerRadius="8" Padding="10" Margin="5">
+                <Border Grid.Row="1" Grid.Column="0" Background="White" BorderBrush="LightGray" BorderThickness="1" CornerRadius="28" Padding="10" Margin="30 30 30 30">
                     <Border.Style>
                         <Style TargetType="Border">
                             <Setter Property="RenderTransform">
@@ -292,7 +292,7 @@
                     </StackPanel>
                 </Border>
 
-                <Border Grid.Row="1" Grid.Column="1" Background="White" BorderBrush="LightGray" BorderThickness="1" CornerRadius="8" Padding="10" Margin="5">
+                <Border Grid.Row="1" Grid.Column="1" Background="White" BorderBrush="LightGray" BorderThickness="1" CornerRadius="28" Padding="10" Margin="30 30 30 30">
                     <Border.Style>
                         <Style TargetType="Border">
                             <Setter Property="RenderTransform">
@@ -355,7 +355,7 @@
                     </StackPanel>
                 </Border>
 
-                <Border Grid.Row="1" Grid.Column="2" Background="White" BorderBrush="LightGray" BorderThickness="1" CornerRadius="8" Padding="10" Margin="5">
+                <Border Grid.Row="1" Grid.Column="2" Background="White" BorderBrush="LightGray" BorderThickness="1" CornerRadius="28" Padding="10" Margin="30 30 30 30">
                     <Border.Style>
                         <Style TargetType="Border">
                             <Setter Property="RenderTransform">
