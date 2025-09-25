@@ -37,7 +37,8 @@ namespace StudyChinese
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            Window Quizsettings = new Window();
+            Window Quizsettings = new QuizSettings();
+            this.Hide();
             Quizsettings.Show();
         }
     }
