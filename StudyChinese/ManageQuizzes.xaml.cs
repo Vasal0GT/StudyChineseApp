@@ -10,32 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace StudyChinese
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ManageQuizzes.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ManageQuizzes : Window
     {
-        public MainWindow()
+        public ManageQuizzes()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            QuizzMain quizzMain = new QuizzMain();
-            quizzMain.Show();
-            this.Close();
         }
     }
 }

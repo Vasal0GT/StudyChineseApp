@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:StudyChinese"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <DropShadowEffect x:Key="CardShadow" 
+                          Color="#000000" 
+                          Direction="315" 
+                          ShadowDepth="2" 
+                          Opacity="0.1" 
+                          BlurRadius="10"/>
     </Application.Resources>
 </Application>
