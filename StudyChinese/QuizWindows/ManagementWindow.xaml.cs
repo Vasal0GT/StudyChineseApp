@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace StudyChinese
+namespace StudyChinese.QuizWindows
 {
     /// <summary>
     /// Interaction logic for ManagementWindow.xaml
@@ -38,6 +38,20 @@ namespace StudyChinese
         private void CreateFirstQuiz_Click(object sender, RoutedEventArgs e)
         {
             // Логика создания первой викторины
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            QuizStep1Window quizStep1Window = new QuizStep1Window();
+            quizStep1Window.Show();
+            this.Close();
+        }
+
+        private void BackButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            QuizzMain quizzMain = new QuizzMain();
+            quizzMain.Show();
+            this.Close();
         }
     }
 }

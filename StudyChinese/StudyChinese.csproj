@@ -55,10 +55,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ManagementWindow.xaml.cs">
+    <Compile Include="QuizWindows\ManagementWindow.xaml.cs">
       <DependentUpon>ManagementWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QuizzMain.xaml.cs">
+    <Compile Include="QuizWindows\QuizStep1Window.xaml.cs">
+      <DependentUpon>QuizStep1Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuizWindows\QuizStep2Window.xaml.cs">
+      <DependentUpon>QuizStep2Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuizWindows\QuizzMain.xaml.cs">
       <DependentUpon>QuizzMain.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
@@ -73,11 +79,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ManagementWindow.xaml">
+    <Page Include="QuizWindows\ManagementWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QuizzMain.xaml">
+    <Page Include="QuizWindows\QuizStep1Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuizWindows\QuizStep2Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuizWindows\QuizzMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
