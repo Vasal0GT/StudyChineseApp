@@ -7,6 +7,43 @@
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Background="Black">
+    <Window.Resources>
+        <Style x:Key="CardBorder" TargetType="Border">
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="#000000" Direction="315" ShadowDepth="2" Opacity="0.1" BlurRadius="10"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation To="1.05" Duration="0:0:0.2" Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"/>
+                                <DoubleAnimation To="1.05" Duration="0:0:0.2" Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"/>
+                                <DoubleAnimation To="0.2" Duration="0:0:0.2" Storyboard.TargetProperty="(Effect).Opacity"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation To="1" Duration="0:0:0.2" Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"/>
+                                <DoubleAnimation To="1" Duration="0:0:0.2" Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"/>
+                                <DoubleAnimation To="0.1" Duration="0:0:0.2" Storyboard.TargetProperty="(Effect).Opacity"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.ExitActions>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
 
     <ScrollViewer VerticalScrollBarVisibility="Auto"
                   HorizontalScrollBarVisibility="Disabled">
@@ -29,7 +66,8 @@
         BorderThickness="2"
         CornerRadius="12"
         HorizontalAlignment="Stretch"
-        VerticalAlignment="Stretch">
+        VerticalAlignment="Stretch"
+        Style="{StaticResource CardBorder}">
                 <Viewbox Stretch="Uniform"
              MaxWidth="1000"
              MaxHeight="200"
@@ -120,53 +158,7 @@
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
 
-                <Border Grid.Row="0" Grid.Column="0" Background="White" BorderBrush="LightGray" BorderThickness="1" CornerRadius="28" Padding="20" Margin="30 30 30 30">
-                    <Border.Style>
-                        <Style TargetType="Border">
-                            <Setter Property="RenderTransform">
-                                <Setter.Value>
-                                    <TranslateTransform Y="0"/>
-                                </Setter.Value>
-                            </Setter>
-                            <Setter Property="Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" BlurRadius="0" ShadowDepth="0"/>
-                                </Setter.Value>
-                            </Setter>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Trigger.EnterActions>
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)" To="-5" Duration="0:0:0.2"/>
-                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Effect">
-                                                    <DiscreteObjectKeyFrame>
-                                                        <DiscreteObjectKeyFrame.Value>
-                                                            <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="5" Opacity="0.3"/>
-                                                        </DiscreteObjectKeyFrame.Value>
-                                                    </DiscreteObjectKeyFrame>
-                                                </ObjectAnimationUsingKeyFrames>
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </Trigger.EnterActions>
-                                    <Trigger.ExitActions>
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)" To="0" Duration="0:0:0.2"/>
-                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Effect">
-                                                    <DiscreteObjectKeyFrame>
-                                                        <DiscreteObjectKeyFrame.Value>
-                                                            <DropShadowEffect Color="Transparent" BlurRadius="0" ShadowDepth="0"/>
-                                                        </DiscreteObjectKeyFrame.Value>
-                                                    </DiscreteObjectKeyFrame>
-                                                </ObjectAnimationUsingKeyFrames>
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </Trigger.ExitActions>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Border.Style>
+                <Border Grid.Row="0" Grid.Column="0" Background="#FFFFFF" BorderBrush="{x:Null}" BorderThickness="0" CornerRadius="10" Padding="20" Margin="30 30 30 30" Style="{StaticResource CardBorder}">
                     <StackPanel>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -183,6 +175,7 @@
                         <TextBlock 
                             FontSize="15"
                             Text="Выберите тему и сложность вопроса. Дайте ответ и заработайте баллы. Чем сложнее вопрос, тем больше баллов!" TextWrapping="Wrap"/>
+<<<<<<< HEAD
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="1*"/>
@@ -206,56 +199,57 @@
                                 </Button.Resources>
                             </Button>
                         </Grid>
+=======
+                        <Button Content="Начать игру" Width="250" Height="50" Margin="0 27 0 0" Click="Button_Click_2">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <!-- Базовые свойства -->
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="Background" Value="White"/>
+                                    <Setter Property="BorderBrush" Value="#FFA2A2"/>
+                                    <Setter Property="BorderThickness" Value="2"/>
+                                    <Setter Property="Cursor" Value="Hand"/>
+                                    <Setter Property="FontSize" Value="16"/>
+                                    <Setter Property="FontWeight" Value="SemiBold"/>
+
+                                    <!-- Шаблон кнопки -->
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                CornerRadius="6" 
+                                Padding="10,5">
+                                                    <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"
+                                              RecognizesAccessKey="True"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+
+                                    <!-- Триггеры -->
+                                    <Style.Triggers>
+                                        <!-- При наведении -->
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="Red"/>
+                                            <Setter Property="Foreground" Value="White"/>
+                                        </Trigger>
+                                        <!-- При нажатии -->
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter Property="Background" Value="#B22222"/>
+                                            <!-- чуть темнее красный -->
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+>>>>>>> test
                     </StackPanel>
                 </Border>
 
-                <Border Grid.Row="0" Grid.Column="1" Background="White" BorderBrush="LightGray" BorderThickness="1" CornerRadius="28" Padding="10" Margin="30 30 30 30">
-                    <Border.Style>
-                        <Style TargetType="Border">
-                            <Setter Property="RenderTransform">
-                                <Setter.Value>
-                                    <TranslateTransform Y="0"/>
-                                </Setter.Value>
-                            </Setter>
-                            <Setter Property="Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" BlurRadius="0" ShadowDepth="0"/>
-                                </Setter.Value>
-                            </Setter>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Trigger.EnterActions>
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)" To="-5" Duration="0:0:0.2"/>
-                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Effect">
-                                                    <DiscreteObjectKeyFrame>
-                                                        <DiscreteObjectKeyFrame.Value>
-                                                            <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="5" Opacity="0.3"/>
-                                                        </DiscreteObjectKeyFrame.Value>
-                                                    </DiscreteObjectKeyFrame>
-                                                </ObjectAnimationUsingKeyFrames>
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </Trigger.EnterActions>
-                                    <Trigger.ExitActions>
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)" To="0" Duration="0:0:0.2"/>
-                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Effect">
-                                                    <DiscreteObjectKeyFrame>
-                                                        <DiscreteObjectKeyFrame.Value>
-                                                            <DropShadowEffect Color="Transparent" BlurRadius="0" ShadowDepth="0"/>
-                                                        </DiscreteObjectKeyFrame.Value>
-                                                    </DiscreteObjectKeyFrame>
-                                                </ObjectAnimationUsingKeyFrames>
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </Trigger.ExitActions>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Border.Style>
+                <Border Grid.Row="0" Grid.Column="1" Background="#FFFFFF" BorderBrush="{x:Null}" BorderThickness="0" CornerRadius="10" Padding="10" Margin="30 30 30 30" Style="{StaticResource CardBorder}">
                     <StackPanel>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -272,53 +266,7 @@
                     </StackPanel>
                 </Border>
 
-                <Border Grid.Row="0" Grid.Column="2" Background="White" BorderBrush="LightGray" BorderThickness="1" CornerRadius="28" Padding="10" Margin="30 30 30 30">
-                    <Border.Style>
-                        <Style TargetType="Border">
-                            <Setter Property="RenderTransform">
-                                <Setter.Value>
-                                    <TranslateTransform Y="0"/>
-                                </Setter.Value>
-                            </Setter>
-                            <Setter Property="Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" BlurRadius="0" ShadowDepth="0"/>
-                                </Setter.Value>
-                            </Setter>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Trigger.EnterActions>
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)" To="-5" Duration="0:0:0.2"/>
-                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Effect">
-                                                    <DiscreteObjectKeyFrame>
-                                                        <DiscreteObjectKeyFrame.Value>
-                                                            <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="5" Opacity="0.3"/>
-                                                        </DiscreteObjectKeyFrame.Value>
-                                                    </DiscreteObjectKeyFrame>
-                                                </ObjectAnimationUsingKeyFrames>
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </Trigger.EnterActions>
-                                    <Trigger.ExitActions>
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)" To="0" Duration="0:0:0.2"/>
-                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Effect">
-                                                    <DiscreteObjectKeyFrame>
-                                                        <DiscreteObjectKeyFrame.Value>
-                                                            <DropShadowEffect Color="Transparent" BlurRadius="0" ShadowDepth="0"/>
-                                                        </DiscreteObjectKeyFrame.Value>
-                                                    </DiscreteObjectKeyFrame>
-                                                </ObjectAnimationUsingKeyFrames>
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </Trigger.ExitActions>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Border.Style>
+                <Border Grid.Row="0" Grid.Column="2" Background="#FFFFFF" BorderBrush="{x:Null}" BorderThickness="0" CornerRadius="10" Padding="10" Margin="30 30 30 30" Style="{StaticResource CardBorder}">
                     <StackPanel>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -335,53 +283,7 @@
                     </StackPanel>
                 </Border>
 
-                <Border Grid.Row="1" Grid.Column="0" Background="White" BorderBrush="LightGray" BorderThickness="1" CornerRadius="28" Padding="10" Margin="30 30 30 30">
-                    <Border.Style>
-                        <Style TargetType="Border">
-                            <Setter Property="RenderTransform">
-                                <Setter.Value>
-                                    <TranslateTransform Y="0"/>
-                                </Setter.Value>
-                            </Setter>
-                            <Setter Property="Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" BlurRadius="0" ShadowDepth="0"/>
-                                </Setter.Value>
-                            </Setter>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Trigger.EnterActions>
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)" To="-5" Duration="0:0:0.2"/>
-                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Effect">
-                                                    <DiscreteObjectKeyFrame>
-                                                        <DiscreteObjectKeyFrame.Value>
-                                                            <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="5" Opacity="0.3"/>
-                                                        </DiscreteObjectKeyFrame.Value>
-                                                    </DiscreteObjectKeyFrame>
-                                                </ObjectAnimationUsingKeyFrames>
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </Trigger.EnterActions>
-                                    <Trigger.ExitActions>
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)" To="0" Duration="0:0:0.2"/>
-                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Effect">
-                                                    <DiscreteObjectKeyFrame>
-                                                        <DiscreteObjectKeyFrame.Value>
-                                                            <DropShadowEffect Color="Transparent" BlurRadius="0" ShadowDepth="0"/>
-                                                        </DiscreteObjectKeyFrame.Value>
-                                                    </DiscreteObjectKeyFrame>
-                                                </ObjectAnimationUsingKeyFrames>
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </Trigger.ExitActions>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Border.Style>
+                <Border Grid.Row="1" Grid.Column="0" Background="#FFFFFF" BorderBrush="{x:Null}" BorderThickness="0" CornerRadius="10" Padding="10" Margin="30 30 30 30" Style="{StaticResource CardBorder}">
                     <StackPanel>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -398,53 +300,7 @@
                     </StackPanel>
                 </Border>
 
-                <Border Grid.Row="1" Grid.Column="1" Background="White" BorderBrush="LightGray" BorderThickness="1" CornerRadius="28" Padding="10" Margin="30 30 30 30">
-                    <Border.Style>
-                        <Style TargetType="Border">
-                            <Setter Property="RenderTransform">
-                                <Setter.Value>
-                                    <TranslateTransform Y="0"/>
-                                </Setter.Value>
-                            </Setter>
-                            <Setter Property="Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" BlurRadius="0" ShadowDepth="0"/>
-                                </Setter.Value>
-                            </Setter>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Trigger.EnterActions>
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)" To="-5" Duration="0:0:0.2"/>
-                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Effect">
-                                                    <DiscreteObjectKeyFrame>
-                                                        <DiscreteObjectKeyFrame.Value>
-                                                            <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="5" Opacity="0.3"/>
-                                                        </DiscreteObjectKeyFrame.Value>
-                                                    </DiscreteObjectKeyFrame>
-                                                </ObjectAnimationUsingKeyFrames>
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </Trigger.EnterActions>
-                                    <Trigger.ExitActions>
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)" To="0" Duration="0:0:0.2"/>
-                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Effect">
-                                                    <DiscreteObjectKeyFrame>
-                                                        <DiscreteObjectKeyFrame.Value>
-                                                            <DropShadowEffect Color="Transparent" BlurRadius="0" ShadowDepth="0"/>
-                                                        </DiscreteObjectKeyFrame.Value>
-                                                    </DiscreteObjectKeyFrame>
-                                                </ObjectAnimationUsingKeyFrames>
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </Trigger.ExitActions>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Border.Style>
+                <Border Grid.Row="1" Grid.Column="1" Background="#FFFFFF" BorderBrush="{x:Null}" BorderThickness="0" CornerRadius="10" Padding="10" Margin="30 30 30 30" Style="{StaticResource CardBorder}">
                     <StackPanel>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -461,53 +317,7 @@
                     </StackPanel>
                 </Border>
 
-                <Border Grid.Row="1" Grid.Column="2" Background="White" BorderBrush="LightGray" BorderThickness="1" CornerRadius="28" Padding="10" Margin="30 30 30 30">
-                    <Border.Style>
-                        <Style TargetType="Border">
-                            <Setter Property="RenderTransform">
-                                <Setter.Value>
-                                    <TranslateTransform Y="0"/>
-                                </Setter.Value>
-                            </Setter>
-                            <Setter Property="Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" BlurRadius="0" ShadowDepth="0"/>
-                                </Setter.Value>
-                            </Setter>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Trigger.EnterActions>
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)" To="-5" Duration="0:0:0.2"/>
-                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Effect">
-                                                    <DiscreteObjectKeyFrame>
-                                                        <DiscreteObjectKeyFrame.Value>
-                                                            <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="5" Opacity="0.3"/>
-                                                        </DiscreteObjectKeyFrame.Value>
-                                                    </DiscreteObjectKeyFrame>
-                                                </ObjectAnimationUsingKeyFrames>
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </Trigger.EnterActions>
-                                    <Trigger.ExitActions>
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)" To="0" Duration="0:0:0.2"/>
-                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Effect">
-                                                    <DiscreteObjectKeyFrame>
-                                                        <DiscreteObjectKeyFrame.Value>
-                                                            <DropShadowEffect Color="Transparent" BlurRadius="0" ShadowDepth="0"/>
-                                                        </DiscreteObjectKeyFrame.Value>
-                                                    </DiscreteObjectKeyFrame>
-                                                </ObjectAnimationUsingKeyFrames>
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </Trigger.ExitActions>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Border.Style>
+                <Border Grid.Row="1" Grid.Column="2" Background="#FFFFFF" BorderBrush="{x:Null}" BorderThickness="0" CornerRadius="10" Padding="10" Margin="30 30 30 30" Style="{StaticResource CardBorder}">
                     <StackPanel>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -563,7 +373,8 @@
                     CornerRadius="18"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
-                    MaxHeight="300">
+                    MaxHeight="300"
+                    >
                 <Grid>
                     <Image Source="Image/CN1.jpg"
                            Opacity="0.5"

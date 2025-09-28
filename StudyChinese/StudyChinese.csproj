@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -57,6 +60,20 @@
     </ApplicationDefinition>
     <Compile Include="QuizSettings.xaml.cs">
       <DependentUpon>QuizSettings.xaml</DependentUpon>
+    <Compile Include="QuizBack\Models\Question.cs" />
+    <Compile Include="QuizBack\Models\Table.cs" />
+    <Compile Include="QuizWindows\ManagementWindow.xaml.cs">
+      <DependentUpon>ManagementWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuizWindows\QuizStep1Window.xaml.cs">
+      <DependentUpon>QuizStep1Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuizWindows\QuizStep2Window.xaml.cs">
+      <DependentUpon>QuizStep2Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuizWindows\QuizzMain.xaml.cs">
+      <DependentUpon>QuizzMain.xaml</DependentUpon>
+>>>>>>> test
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -70,7 +87,23 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+<<<<<<< HEAD
     <Page Include="QuizSettings.xaml">
+=======
+    <Page Include="QuizWindows\ManagementWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuizWindows\QuizStep1Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuizWindows\QuizStep2Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuizWindows\QuizzMain.xaml">
+>>>>>>> test
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -93,6 +126,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -107,7 +141,9 @@
   <ItemGroup>
     <Resource Include="Image\CN.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="QuizBack\JsonTables\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\icons\quiz.png" />
   </ItemGroup>
