@@ -58,7 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="QuizBack\Models\Question.cs" />
+    <Compile Include="QuizBack\Models\QuestionDTO.cs" />
     <Compile Include="QuizBack\Models\Table.cs" />
     <Compile Include="QuizWindows\ManagementWindow.xaml.cs">
       <DependentUpon>ManagementWindow.xaml</DependentUpon>
