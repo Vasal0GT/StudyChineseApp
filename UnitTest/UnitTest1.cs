@@ -1,13 +1,16 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StudyChinese.QuizBack.Models;
+using System.Diagnostics;
 using System;
 using System.IO;
+using System.Security.Cryptography.X509Certificates;
 
 namespace UnitTest
 {
     [TestClass]
     public class UnitTest1
     {
+        public TestContext _testContext { get; set; }
         [TestMethod]
         public void ConvertToJson_CreatedAndExisted_resulTrue()
         {
@@ -43,7 +46,6 @@ namespace UnitTest
 
             QuestionDTO result = QuestionDTO.ConvertStringToQuestionDTO(forConverting);
 
-            Console.WriteLine(result);
             Assert.IsTrue(questionTamplate.Equals(result));
         }
     }

@@ -110,7 +110,7 @@
             <!-- Card Buttons -->
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center">
-                <Button x:Name="PlayButton" Style="{StaticResource CardButton}" Margin="0,0,40,0">
+                <Button x:Name="PlayButton" Style="{StaticResource CardButton}" Margin="0,0,40,0" Click="PlayButton_Click">
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                         <TextBlock Text="Играть" 
                                    FontSize="24" 

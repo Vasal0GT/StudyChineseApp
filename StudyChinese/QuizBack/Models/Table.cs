@@ -15,16 +15,16 @@ namespace StudyChinese.QuizBack.Models
         public string Description { get; set; }
         public int RowNumber { get; set; }
         public int ColumnNumber { get; set; }
-        public List<string> Questions { get; set; }
+        public List<QuestionDTO> Questions { get; set; }
 
-        public Table(Guid id, string name, string description, int rowNumber, int columnNumber, List<string> questions)
+        public Table(Guid id, string name, string description, int rowNumber, int columnNumber, List<QuestionDTO> questions)
         {
             Id = id;
             Name = name;
             Description = description;
             RowNumber = rowNumber;
             ColumnNumber = columnNumber;
-            Questions = questions ?? new List<string>();
+            Questions = questions ?? new List<QuestionDTO>();
         }
         public Table()
         { 

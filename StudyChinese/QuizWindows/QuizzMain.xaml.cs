@@ -38,5 +38,12 @@ namespace StudyChinese
             managementWindow.Show();
             this.Close();
         }
+
+        private void PlayButton_Click(object sender, RoutedEventArgs e)
+        {
+            QuizChoose quizChoose = new QuizChoose();
+            quizChoose.Show();
+            this.Close();
+        }
     }
 }

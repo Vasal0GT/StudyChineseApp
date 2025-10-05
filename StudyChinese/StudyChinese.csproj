@@ -63,6 +63,12 @@
     <Compile Include="QuizWindows\ManagementWindow.xaml.cs">
       <DependentUpon>ManagementWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="QuizWindows\Quiz.xaml.cs">
+      <DependentUpon>Quiz.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuizWindows\QuizChoose.xaml.cs">
+      <DependentUpon>QuizChoose.xaml</DependentUpon>
+    </Compile>
     <Compile Include="QuizWindows\QuizStep1Window.xaml.cs">
       <DependentUpon>QuizStep1Window.xaml</DependentUpon>
     </Compile>
@@ -85,6 +91,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="QuizWindows\ManagementWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuizWindows\Quiz.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuizWindows\QuizChoose.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

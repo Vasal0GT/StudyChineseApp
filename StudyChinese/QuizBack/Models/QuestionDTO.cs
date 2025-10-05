@@ -25,6 +25,10 @@ namespace StudyChinese.QuizBack.Models
         public QuestionDTO()
         { 
         }
+        public override string ToString()
+        {
+            return ConnectedTable + "/" + Guess + "/" + Answer + "/" + Column + "/" + Row + "/";
+        }
 
         public bool Equals(QuestionDTO other)
         {
@@ -46,36 +50,22 @@ namespace StudyChinese.QuizBack.Models
         }
         public static QuestionDTO ConvertStringToQuestionDTO(string str)
         {
-            QuestionDTO questionDTO = new QuestionDTO();
-            int index = 0;
-            int startIndex = 0;
-            for (int i = 0; i < str.Length; i++)
+            var parts = str.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+
+            if (parts.Length < 5)
+                throw new ArgumentException("Некорректная строка для парсинга QuestionDTO", nameof(str));
+
+            return new QuestionDTO
             {
-                if (str[i] == '/')
-                {
-                    switch (index)
-                    {
-                        case 0:
-                            questionDTO.ConnectedTable = str.Substring(startIndex, i);
-                            break;
-                        case 1:
-                            questionDTO.Guess = str.Substring(startIndex, i);
-                            break;
-                        case 2:
-                            questionDTO.Answer = str.Substring(startIndex, i);
-                            break;
-                        case 3:
-                            questionDTO.Column = int.Parse(str.Substring(startIndex, i));
-                            break;
-                        case 4:
-                            questionDTO.Row = int.Parse(str.Substring(startIndex, i));
-                            break;
-                    }
-                    index++;
-                    startIndex = i;
-                }
-            }
-            return questionDTO;
+                ConnectedTable = parts[0],
+                Guess = parts[1],
+                Answer = parts[2],
+                Column = int.Parse(parts[3]),
+                Row = int.Parse(parts[4])
+            };
         }
+
+
+
     }
 }
