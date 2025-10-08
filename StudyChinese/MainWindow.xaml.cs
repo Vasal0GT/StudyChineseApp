@@ -30,12 +30,25 @@ namespace StudyChinese
             Application.Current.Shutdown();
         }
 
+<<<<<<< HEAD
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            //
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Window Quizsettings = new QuizSettings();
+            this.Hide();
+            Quizsettings.Show();
+=======
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             QuizzMain quizzMain = new QuizzMain();
             quizzMain.Show();
             this.Close();
+>>>>>>> test
         }
     }
 }
