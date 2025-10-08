@@ -16,8 +16,10 @@ namespace StudyChinese.QuizBack.Models
         public int RowNumber { get; set; }
         public int ColumnNumber { get; set; }
         public List<QuestionDTO> Questions { get; set; }
+        public int Multiplier { get; set; }
+        public Dictionary<int, string> RowThemes { get; set; } = new Dictionary<int, string>();
 
-        public Table(Guid id, string name, string description, int rowNumber, int columnNumber, List<QuestionDTO> questions)
+        public Table(Guid id, string name, string description, int rowNumber, int columnNumber, List<QuestionDTO> questions, int multiplier)
         {
             Id = id;
             Name = name;
@@ -25,6 +27,8 @@ namespace StudyChinese.QuizBack.Models
             RowNumber = rowNumber;
             ColumnNumber = columnNumber;
             Questions = questions ?? new List<QuestionDTO>();
+            Multiplier=multiplier;
+            RowThemes = new Dictionary<int, string>();
         }
         public Table()
         { 

@@ -52,7 +52,7 @@ namespace StudyChinese.QuizWindows
             var files = Directory.GetFiles(quizFolder, "*.json");
             Array.Sort(files);
 
-            var quizes = Task.Run(() =>
+            var quizes = await Task.Run(() =>
             {
                 Application.Current.Dispatcher.Invoke(() =>
                 {
@@ -64,6 +64,7 @@ namespace StudyChinese.QuizWindows
                         if (table != null) QuizList.Items.Add(table);
                     }
                 });
+                return QuizList;
             });
         }
 

@@ -1,0 +1,78 @@
+{
+  "Id": "b4f8a2de-9a13-4a4b-a9a1-1b5cb9b5f24e",
+  "Name": "Chinese Basics Quiz",
+  "Description": "Тест на знание базовых китайских слов и выражений.",
+  "RowNumber": 3,
+  "ColumnNumber": 3,
+  "Questions": [
+    {
+      "ConnectedTable": "ChineseBasics",
+      "Guess": "你好",
+      "Answer": "Привет",
+      "Column": 1,
+      "Row": 1
+    },
+    {
+      "ConnectedTable": "ChineseBasics",
+      "Guess": "再见",
+      "Answer": "До свидания",
+      "Column": 2,
+      "Row": 1
+    },
+    {
+      "ConnectedTable": "ChineseBasics",
+      "Guess": "谢谢",
+      "Answer": "Спасибо",
+      "Column": 3,
+      "Row": 1
+    },
+    {
+      "ConnectedTable": "ChineseBasics",
+      "Guess": "一",
+      "Answer": "Один",
+      "Column": 1,
+      "Row": 2
+    },
+    {
+      "ConnectedTable": "ChineseBasics",
+      "Guess": "二",
+      "Answer": "Два",
+      "Column": 2,
+      "Row": 2
+    },
+    {
+      "ConnectedTable": "ChineseBasics",
+      "Guess": "三",
+      "Answer": "Три",
+      "Column": 3,
+      "Row": 2
+    },
+    {
+      "ConnectedTable": "ChineseBasics",
+      "Guess": "红色",
+      "Answer": "Красный",
+      "Column": 1,
+      "Row": 3
+    },
+    {
+      "ConnectedTable": "ChineseBasics",
+      "Guess": "蓝色",
+      "Answer": "Синий",
+      "Column": 2,
+      "Row": 3
+    },
+    {
+      "ConnectedTable": "ChineseBasics",
+      "Guess": "绿色",
+      "Answer": "Зелёный",
+      "Column": 3,
+      "Row": 3
+    }
+  ],
+  "Multiplier": 1,
+  "RowThemes": {
+    "1": "Основные приветствия",
+    "2": "Числа",
+    "3": "Цвета"
+  }
+}

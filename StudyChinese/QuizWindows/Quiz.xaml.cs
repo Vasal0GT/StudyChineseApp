@@ -19,10 +19,75 @@ namespace StudyChinese.QuizWindows
     /// </summary>
     public partial class Quiz : Window
     {
+        public Table _table { get; set; }
+        public Dictionary<int, int> chosenLocations { get; set; }
         public Quiz(Table table)
         {
+            _table = table;
             InitializeComponent();
-            Name.Content = table.Name;
+
+            Loaded += Quiz_Loaded;
+        }
+
+        private async void Quiz_Loaded(object sender, RoutedEventArgs e)
+        {
+            await Load_name();
+            await Create_Table();
+        }
+        private async Task Load_name()
+        {
+            QuizTitle.Text = _table.Name;
+        }
+
+        private async Task Create_Table()
+        {
+            GameGrid.ShowGridLines = true;
+            GameGrid.Margin = new Thickness(20);
+            for(int i = 0; i < _table.RowNumber; i++)
+            {
+                GameGrid.RowDefinitions.Add(new RowDefinition());
+            }
+            for (int i = 0; i <= _table.ColumnNumber; i++)
+            { 
+                GameGrid.ColumnDefinitions.Add(new ColumnDefinition());
+            }
+            foreach (var theme in _table.RowThemes)
+            {
+                TextBlock tb = new TextBlock
+                {
+                    Text = $"{theme.Value}"
+                };
+                Grid.SetRow(tb, theme.Key - 1);
+                Grid.SetColumn(tb, 0);
+                GameGrid.Children.Add(tb);
+            }
+            foreach(var question in _table.Questions)
+            {
+                Button bt = new Button
+                {
+                    Content = $"{10 * (_table.Multiplier * question.Column)}",
+                    Tag = question
+                };
+                bt.Click += OnQuestionClicked;
+
+                Grid.SetColumn(bt, question.Column);
+                Grid.SetRow(bt, question.Row - 1);
+                GameGrid.Children.Add(bt);
+            }
+        }
+        private void OnQuestionClicked(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button bt && bt.Tag is QuestionDTO question)
+            { 
+                QuestionWindow questionWindow = new QuestionWindow((QuestionDTO)bt.Tag);
+                questionWindow.ShowDialog();
+            }
+        }
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            QuizChoose quizChoose = new QuizChoose();
+            quizChoose.Show();
+            this.Close();
         }
     }
 }
