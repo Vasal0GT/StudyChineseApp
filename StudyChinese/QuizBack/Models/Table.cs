@@ -15,16 +15,20 @@ namespace StudyChinese.QuizBack.Models
         public string Description { get; set; }
         public int RowNumber { get; set; }
         public int ColumnNumber { get; set; }
-        public List<Question> Questions { get; set; }
+        public List<QuestionDTO> Questions { get; set; }
+        public int Multiplier { get; set; }
+        public Dictionary<int, string> RowThemes { get; set; } = new Dictionary<int, string>();
 
-        public Table(Guid id, string name, string description, int rowNumber, int columnNumber, List<Question> questions)
+        public Table(Guid id, string name, string description, int rowNumber, int columnNumber, List<QuestionDTO> questions, int multiplier)
         {
             Id = id;
             Name = name;
             Description = description;
             RowNumber = rowNumber;
             ColumnNumber = columnNumber;
-            Questions = questions ?? new List<Question>();
+            Questions = questions ?? new List<QuestionDTO>();
+            Multiplier=multiplier;
+            RowThemes = new Dictionary<int, string>();
         }
         public Table()
         { 
@@ -36,8 +40,15 @@ namespace StudyChinese.QuizBack.Models
             try
             {
                 string json = JsonConvert.SerializeObject(table);
-                string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
-                string filePath = Path.Combine(@"C:\VA\chineseApp\StudyChinese\StudyChinese\QuizBack\JsonTables\", $"{tableName}.json");
+                string baseDerictory = AppDomain.CurrentDomain.BaseDirectory;
+                string projcetDirectory = Path.GetFullPath(Path.Combine(baseDerictory, @"..\..\..\"));
+
+                string folderPath = Path.Combine(projcetDirectory, "QuizBack", "JsonTables");
+
+                if (!Directory.Exists(folderPath))
+                    Directory.CreateDirectory(folderPath);
+
+                string filePath = Path.Combine(folderPath, $"{tableName}.json");
 
                 File.WriteAllText(filePath, json);
                 return "Викторина была успешно сохранен";

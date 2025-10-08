@@ -58,12 +58,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="QuizSettings.xaml.cs">
-      <DependentUpon>QuizSettings.xaml</DependentUpon>
-    <Compile Include="QuizBack\Models\Question.cs" />
+    <Compile Include="QuizBack\Models\QuestionDTO.cs" />
     <Compile Include="QuizBack\Models\Table.cs" />
     <Compile Include="QuizWindows\ManagementWindow.xaml.cs">
       <DependentUpon>ManagementWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuizWindows\QuestionWindow.xaml.cs">
+      <DependentUpon>QuestionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuizWindows\Quiz.xaml.cs">
+      <DependentUpon>Quiz.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuizWindows\QuizChoose.xaml.cs">
+      <DependentUpon>QuizChoose.xaml</DependentUpon>
     </Compile>
     <Compile Include="QuizWindows\QuizStep1Window.xaml.cs">
       <DependentUpon>QuizStep1Window.xaml</DependentUpon>
@@ -73,7 +80,6 @@
     </Compile>
     <Compile Include="QuizWindows\QuizzMain.xaml.cs">
       <DependentUpon>QuizzMain.xaml</DependentUpon>
->>>>>>> test
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -87,10 +93,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-<<<<<<< HEAD
-    <Page Include="QuizSettings.xaml">
-=======
     <Page Include="QuizWindows\ManagementWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuizWindows\QuestionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuizWindows\Quiz.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuizWindows\QuizChoose.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -103,7 +118,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="QuizWindows\QuizzMain.xaml">
->>>>>>> test
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
