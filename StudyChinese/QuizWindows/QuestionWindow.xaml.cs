@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -21,11 +22,37 @@ namespace StudyChinese.QuizWindows
     public partial class QuestionWindow : Window
     {
         private QuestionDTO _questionDTO;
+
+
         public QuestionWindow(QuestionDTO questionDTO)
         {
             InitializeComponent();
             _questionDTO = questionDTO;
-            testGuess.Text = _questionDTO.Guess;
+            Loaded += QuestionWindow_Loaded;
+        }
+
+        private async void QuestionWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            await loadGuess();
+        }
+
+        private async Task loadGuess()
+        {
+            QuestionText.Text = _questionDTO.Guess;
+        }
+
+        private void RevealButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (RevealButton.Content == "Вернуться к викторине")
+            {
+                this.DialogResult = true; 
+                this.Close();
+                return;
+            }
+
+            AnswerText.Text = _questionDTO.Answer;
+            AnswerText.Opacity = 1;
+            RevealButton.Content = "Вернуться к викторине";
         }
     }
 }
