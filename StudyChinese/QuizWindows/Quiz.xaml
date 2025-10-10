@@ -11,6 +11,7 @@
         AllowsTransparency="True">
 
     <Window.Resources>
+        <!-- Эффект тени -->
         <DropShadowEffect x:Key="CardShadow"
                           Color="#000000"
                           Direction="315"
@@ -18,6 +19,7 @@
                           Opacity="0.1"
                           BlurRadius="10"/>
 
+        <!-- Кнопка "Назад" -->
         <Style x:Key="BackButton" TargetType="Button">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
@@ -44,11 +46,63 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+
+        <!-- Заголовки тем (первая колонка) -->
+        <Style x:Key="ThemeTextStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#444"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+
+        <!-- Кнопки с вопросами -->
+        <Style x:Key="QuestionButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#FFD7E5FF"/>
+            <!-- мягкий голубоватый -->
+            <Setter Property="Foreground" Value="#333"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="BorderBrush" Value="#A0C4FF"/>
+            <Setter Property="BorderThickness" Value="1.5"/>
+            <Setter Property="Margin" Value="8"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Effect" Value="{StaticResource CardShadow}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="8"
+                                SnapsToDevicePixels="True">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              RecognizesAccessKey="True"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FFBFD9FF"/>
+                    <Setter Property="BorderBrush" Value="#809CFF"/>
+                    <Setter Property="Foreground" Value="#222"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#FF9CC4FF"/>
+                    <Setter Property="BorderBrush" Value="#5A8FFF"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
     </Window.Resources>
 
+    <!-- Основная сетка -->
     <Grid Margin="20">
-
-        <!-- Верхняя панель -->
         <StackPanel Orientation="Horizontal" Margin="0,0,0,20" VerticalAlignment="Top">
             <Button x:Name="BackButton" Style="{StaticResource BackButton}" Content="←" Click="BackButton_Click" />
             <TextBlock x:Name="QuizTitle"
@@ -60,7 +114,6 @@
                        Margin="10,0,0,0"/>
         </StackPanel>
 
-        <!-- Игровая таблица -->
         <Border Grid.Row="1"
                 Background="White"
                 CornerRadius="10"

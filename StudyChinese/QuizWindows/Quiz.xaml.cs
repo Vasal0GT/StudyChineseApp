@@ -20,7 +20,6 @@ namespace StudyChinese.QuizWindows
     public partial class Quiz : Window
     {
         public Table _table { get; set; }
-        public Dictionary<int, int> chosenLocations { get; set; }
         public Quiz(Table table)
         {
             _table = table;
@@ -41,7 +40,7 @@ namespace StudyChinese.QuizWindows
 
         private async Task Create_Table()
         {
-            GameGrid.ShowGridLines = true;
+            GameGrid.ShowGridLines = false;
             GameGrid.Margin = new Thickness(20);
             for(int i = 0; i < _table.RowNumber; i++)
             {
@@ -55,7 +54,8 @@ namespace StudyChinese.QuizWindows
             {
                 TextBlock tb = new TextBlock
                 {
-                    Text = $"{theme.Value}"
+                    Text = $"{theme.Value}",
+                    Style = (Style)FindResource("ThemeTextStyle")
                 };
                 Grid.SetRow(tb, theme.Key - 1);
                 Grid.SetColumn(tb, 0);
@@ -66,7 +66,8 @@ namespace StudyChinese.QuizWindows
                 Button bt = new Button
                 {
                     Content = $"{10 * (_table.Multiplier * question.Column)}",
-                    Tag = question
+                    Tag = question,
+                    Style = (Style)FindResource("QuestionButtonStyle")
                 };
                 bt.Click += OnQuestionClicked;
 
@@ -80,7 +81,11 @@ namespace StudyChinese.QuizWindows
             if (sender is Button bt && bt.Tag is QuestionDTO question)
             { 
                 QuestionWindow questionWindow = new QuestionWindow((QuestionDTO)bt.Tag);
-                questionWindow.ShowDialog();
+                bool? result = questionWindow.ShowDialog();
+                if (result == true)
+                {
+                    GameGrid.Children.Remove(bt);
+                }
             }
         }
         private void BackButton_Click(object sender, RoutedEventArgs e)
