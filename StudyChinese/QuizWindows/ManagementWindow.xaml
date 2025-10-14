@@ -90,11 +90,48 @@
             </Border>
 
             <!-- Пока нет викторин -->
-            <Border Style="{StaticResource BigCard}" Width="600" Margin="0,0,0,30">
-                <TextBlock Text="У вас пока нет викторин"
-                           FontSize="16"
-                           Foreground="#666666"/>
-            </Border>
+            <ListBox x:Name="QuizList"
+          Margin="0 0 0 12"
+          Height="300"
+          BorderThickness="1"
+          BorderBrush="White"
+          Background="White"
+          Foreground="#333333"
+          FontSize="16"
+          SelectionMode="Single">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Margin" Value="0,5"/>
+                        <Setter Property="Padding" Value="10"/>
+                        <Setter Property="Background" Value="White"/>
+                        <Setter Property="BorderBrush" Value="#FFA2A2"/>
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListBoxItem">
+                                    <Border Background="{TemplateBinding Background}" 
+                                 BorderBrush="{TemplateBinding BorderBrush}" 
+                                 BorderThickness="{TemplateBinding BorderThickness}" 
+                                 CornerRadius="6"
+                                 Padding="{TemplateBinding Padding}">
+                                        <ContentPresenter />
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FFECEC"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="Red"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
 
             <!-- Создать новую -->
             <Border Style="{StaticResource PinkCard}" Width="600" Margin="0,0,0,15">

@@ -66,8 +66,7 @@
         BorderThickness="2"
         CornerRadius="12"
         HorizontalAlignment="Stretch"
-        VerticalAlignment="Stretch"
-        Style="{StaticResource CardBorder}">
+        VerticalAlignment="Stretch">
                 <Viewbox Stretch="Uniform"
              MaxWidth="1000"
              MaxHeight="200"

@@ -91,7 +91,7 @@
 
             <!-- Шапка -->
             <StackPanel Orientation="Horizontal" Margin="0,0,0,30">
-                <Button x:Name="BackButton" Style="{StaticResource BackButton}" Content="←" />
+                <Button x:Name="BackButton" Style="{StaticResource BackButton}" Content="←" Click="BackButton_Click" />
                 <TextBlock Text="Создание викторины"
                            FontSize="24"
                            FontWeight="Bold"
@@ -112,11 +112,11 @@
 
                     <!-- Название викторины -->
                     <TextBlock Text="Название викторины" FontSize="14" Margin="0,0,0,2"/>
-                    <TextBox Style="{StaticResource PinkTextBox}" Tag="Например: Базовая лексика HSK1"/>
+                    <TextBox  x:Name="quizName" Style="{StaticResource PinkTextBox}" Tag="Например: Базовая лексика HSK1"/>
 
                     <!-- Описание -->
-                    <TextBlock Text="Описание (необязательно)" FontSize="14" Margin="0,0,0,2"/>
-                    <TextBox Style="{StaticResource PinkTextBox}" Tag="Краткое описание викторины..." Height="60" AcceptsReturn="True"/>
+                    <TextBlock  Text="Описание (необязательно)" FontSize="14" Margin="0,0,0,2"/>
+                    <TextBox x:Name="quizDescription" Style="{StaticResource PinkTextBox}" Tag="Краткое описание викторины..." Height="60" AcceptsReturn="True"/>
 
                     <!-- Две колонки -->
                     <Grid>
@@ -127,12 +127,12 @@
 
                         <StackPanel Margin="0,0,10,0" Grid.Column="0">
                             <TextBlock Text="Количество тем" FontSize="14" Margin="0,0,0,2"/>
-                            <TextBox Style="{StaticResource PinkTextBox}" Text="1"/>
+                            <TextBox x:Name="themeNumber" Style="{StaticResource PinkTextBox}" Text="1" PreviewTextInput="Int_PreviewTextInput"/>
                         </StackPanel>
 
                         <StackPanel Margin="10,0,0,0" Grid.Column="1">
-                            <TextBlock Text="Баллов за вопрос" FontSize="14" Margin="0,0,0,2"/>
-                            <TextBox Style="{StaticResource PinkTextBox}" Text="10"/>
+                            <TextBlock Text="Множитель сложности" FontSize="14" Margin="0,0,0,2"/>
+                            <TextBox x:Name="quizMultiplier" Style="{StaticResource PinkTextBox}" Text="10" PreviewTextInput="Int_PreviewTextInput"/>
                         </StackPanel>
                     </Grid>
 
